@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/styleObj.js"></script>
 </head>
 <body>
 <div class="wrapper" id="game"></div>
@@ -31,6 +32,11 @@
 <!--            <button class="win-btn no">NO</button>-->
 <!--        </div>-->
 <!--    </div>-->
-<script src="js/style.js"></script>
+<!--<script src="js/style.js"></script>-->
+
+<script>
+    var xo = new GameXo({});
+    console.log(xo.initGame())
+</script>
 </body>
 </html>

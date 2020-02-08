@@ -54,6 +54,7 @@
     background: black;
     box-sizing: border-box;
     position: absolute;
+    display: block;
 }
 .main-container>div.x:before{
     transform: rotate(45deg);
@@ -61,7 +62,7 @@
 .main-container>div.x:after{
     transform: rotate(-45deg);
 }
-.main-container.o>.div:not(.o):not(.x):hover:after{
+.main-container.o>div:not(.o):not(.x):hover:after{
     content: "";
     width: 90px;
     height: 90px;
@@ -72,24 +73,24 @@
     justify-content: center;
     align-content: center;
 }
-.main-container.x>.div:not(.o):not(.x):hover:after,
-.main-container.x>.div:not(.o):not(.x):hover:before{
+.main-container.x>div:not(.o):not(.x):hover:after,
+.main-container.x>div:not(.o):not(.x):hover:before{
     content: "";
     width: 15px;
     height: 90px;
     background: lightgrey;
     box-sizing: border-box;
     position: absolute;
+    display: block;
 }
-.main-container.x>.div:not(.o):not(.x):hover:after{
+.main-container.x>div:not(.o):not(.x):hover:after{
     transform: rotate(45deg);
 }
-.main-container.x>.div:not(.o):not(.x):hover:before{
+.main-container.x>div:not(.o):not(.x):hover:before{
     transform: rotate(-45deg);
 }
 .popup{
     display: none;
-    /*display: flex;*/
     justify-content: center;
     align-items: center;
     margin: 0 auto;
@@ -109,6 +110,9 @@
     align-items: center;
     flex-flow: row wrap;
     border-radius: 15px;
+    position: absolute;
+    top: 20%;
+    left: calc(50% - 175px);
 }
 .yes,.no{
     background-color: green;
@@ -125,4 +129,7 @@
 .win-btn.start{
     color: black;
     margin: 10px 90px;
+}
+.active{
+    display: block;
 }

@@ -65,7 +65,7 @@
     function initGame(){
         var fragment = document.createDocumentFragment();
         for (var i = 0; i < 9; i++) {
-            fragment.appendChild(createElem('div',false, {event:'click', handler: go.bind(this), options:{once:true}}))
+            fragment.appendChild(createElem('div',false, {event:'click', handler: go.bind(this)}))
         }
         this.options.gameWrap.appendChild(fragment);
         this.options.gameParent.appendChild(this.options.gameWrap);
@@ -88,7 +88,10 @@
     }
 
     function go(e){
-        if(!this.options.startedGame) return false;
+        if(!this.options.startedGame ||
+            e.target.classList.contains(this.options.gameClasses[0]) ||
+            e.target.classList.contains(this.options.gameClasses[1])
+        ) return false;
 
         e.target.classList.add(getClass.apply(this));
 
@@ -196,7 +199,7 @@
             }
         }
         if(events){
-            elem.addEventListener(events.event, events.handler, events.options);
+            elem.addEventListener(events.event, events.handler);
             // console.log(events.event,events.handler)
         }
         return elem;

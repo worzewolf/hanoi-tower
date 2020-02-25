@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="pyramid" id="one">
+<!--            <div>1</div>-->
+<!--            <div>2</div>-->
+<!--            <div>3</div>-->
+<!--            <div>4</div>-->
+<!--            <div>5</div>-->
+        </div>
+        <div class="pyramid" id="two"></div>
+        <div class="pyramid" id="three"></div>
+    </div>
+    <script>
+        // function a(counter) {
+        //     console.log(counter);
+        //     if (counter === 10) return;
+        //     a(++counter);
+        //
+        //     console.log('end ' + counter);
+        // }
+        // a(0);
+
+        (function () {
+
+            var first = document.getElementById('one'),
+                second = document.getElementById('two'),
+                third = document.getElementById('three'),
+                widthElem = 50,
+                countBlock = 3;
+                // countBlock = 5;
+            var pocket = [];
+            var hanoiMassive = [];
+            var delay = 5000;
+
+
+            // function createElem(count) {
+                // var newDiv = document.createElement('div');
+                // newDiv.textContent = count;
+                // first.append(newDiv);
+                //
+                // if (countBlock !== count) createElem(++count);
+            // }
+            // createElem(1);
+
+            function createElem(counter) {
+                var counter = 0;
+                while (counter < 5) {
+                    counter++;
+                    var newDiv = document.createElement('div');
+                    newDiv.textContent = counter;
+                    newDiv.style.width = widthElem * counter + 'px';
+                    first.append(newDiv);
+                    pocket.push(newDiv);
+                }
+            }
+            createElem();
+
+            function hanoi(n,i,k) {
+                console.log('move disk ' + n + ' from pin ' + i + ' to ' + k + '\n');
+                if (n == 1) {
+                    hanoiMassive.push([n,i,k]);
+                    console.log('move disk ' + n + ' from pin ' + i + ' to ' + k + '\n');
+                    console.log(hanoiMassive);
+                } else {
+                    var tmp = 6 - i - k;
+                    hanoi(n-1, i, tmp);
+                    hanoiMassive.push([n,i,k]);
+                    console.log('move disk ' + n + ' from pin ' + i + ' to ' + k + '\n');
+                    console.log(hanoiMassive);
+                    hanoi(n-1, tmp, k);
+                }
+            }
+            hanoi(countBlock, 1, 2);
+
+            function timeOut() {
+                
+            }
+
+
+        })();
+
+
+    </script>
+</body>
+</html>
